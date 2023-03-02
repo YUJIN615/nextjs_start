@@ -3,8 +3,8 @@ import Seo from "@/components/Seo";
 export default function Home() {
   return (
     <div>
-      <Seo title="Home" />
-      <h1>Hello</h1>
+      <Seo title="about" />
+      <h1>About us</h1>
     </div>
   );
 }
