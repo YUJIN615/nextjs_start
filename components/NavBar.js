@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export default function NavBar() {
   const router = useRouter();
-  console.log(router);
+
   return (
     // module.css로 스타일 주는 방법
     // <nav className={styles.nav}>
@@ -20,31 +20,40 @@ export default function NavBar() {
     // </nav>
 
     // jsx style로 스타일 주는 방법
-    <nav>
-      <img src="/next.svg" alt="logo" />
-      <Link href="/" legacyBehavior>
-        <span className={`link ${router.pathname === "/" ? "active" : ""}`}>
-          Home
-        </span>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <span
-          className={`link ${router.pathname === "/about" ? "active" : ""}`}
-        >
-          About
-        </span>
-      </Link>
+    <div className="nav-box">
+      <img src="/next.svg" alt="logo" className="logo"/>
+      <nav>
+        <Link href="/" legacyBehavior>
+          <span className={`link ${router.pathname === "/" ? "active" : ""}`}>
+            Home
+          </span>
+        </Link>
+        <Link href="/about" legacyBehavior>
+          <span
+            className={`link ${router.pathname === "/about" ? "active" : ""}`}
+          >
+            About
+          </span>
+        </Link>
+      </nav>
 
       <style jsx>{`
-        nav {
-          display: flex;
-          gap: 10px;
-          flex-direction: column;
-          align-items: center;
+        .nav-box {
           padding-top: 20px;
           padding-bottom: 10px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+        .logo {
+          display: block;
+          margin: 0 auto;
+        }
+        nav {
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+          align-items: center;
+          padding: 20px 0 10px;
         }
         img {
           max-width: 100px;
@@ -55,13 +64,13 @@ export default function NavBar() {
           font-size: 18px;
         }
         .active {
-          color: tomato;
+          font-weight: bold;
         }
         nav div {
           display: flex;
           gap: 10px;
         }
       `}</style>
-    </nav>
+    </div>
   );
 }
